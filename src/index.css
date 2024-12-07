@@ -34,7 +34,7 @@ footer {
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #1a1a1a;
-    color: rgba(255, 255, 255, 0.87);
+    color: #ffffff;
   }
 
   a {
