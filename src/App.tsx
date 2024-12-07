@@ -11,7 +11,6 @@ type ProcessedData = {
 
 const App: React.FC = () => {
   const [data, setData] = useState<ProcessedData[]>([]);
-  const [tagsMap, setTagsMap] = useState<TagsMap>({});
 
   const csvUrl = import.meta.env.VITE_APP_CSV;
 
@@ -33,8 +32,6 @@ const App: React.FC = () => {
           const colLetter = String.fromCharCode(66 + index); // B, C, D, etc.
           tagsMapping[`${colLetter}2`] = tag; // Ejemplo: "B2": "react"
         });
-
-        setTagsMap(tagsMapping);
 
         // Procesar datos desde la fila 5
         const processedData = rows.slice(4).map((row) => {
@@ -65,46 +62,46 @@ const App: React.FC = () => {
   }, [csvUrl]);
 
   return (
-    <div className="container">
-      <h1>Datos desde Google Sheets</h1>
-      {/* Debug de tags disponibles */}
-      <div className="available-tags">
-        <h3>Tags Disponibles:</h3>
-        {Object.entries(tagsMap).map(([ref, tag]) => (
-          <span key={ref} className="tag">
-            {ref}: {tag}
-          </span>
-        ))}
-      </div>
-      <table className="data-table">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Tags</th>
-            <th>Descripción</th>
-            <th>URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((row, index) => (
-            <tr key={index}>
-              <td>{row.name}</td>
-              <td>
-                {/* Mostrar los tags como una lista separada por comas */}
-                {row.tags.length > 0 ? row.tags.join(", ") : "Sin Tags"}
-              </td>
-              <td>{row.description}</td>
-              <td>
-                {row.url && (
-                  <a href={row.url} target="_blank" rel="noopener noreferrer">
-                    {row.url}
-                  </a>
-                )}
-              </td>
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-center mb-6">
+        Datos desde Google Sheets
+      </h1>
+
+      <div className="overflow-x-auto">
+        <table className="min-w-full first-letter:shadow-md rounded-lg">
+          <thead>
+            <tr>
+              <th className="px-4 py-2 text-left">Nombre</th>
+              <th className="px-4 py-2 text-left">Tags</th>
+              <th className="px-4 py-2 text-left">Descripción</th>
+              <th className="px-4 py-2 text-left">URL</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {data.map((row, index) => (
+              <tr key={index} className="border-t">
+                <td className="px-4 py-2">{row.name}</td>
+                <td className="px-4 py-2">
+                  {row.tags.length > 0 ? row.tags.join(", ") : "Sin Tags"}
+                </td>
+                <td className="px-4 py-2">{row.description}</td>
+                <td className="px-4 py-2">
+                  {row.url && (
+                    <a
+                      href={row.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 underline"
+                    >
+                      {row.url}
+                    </a>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
