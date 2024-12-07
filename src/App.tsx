@@ -1,11 +1,11 @@
-// src/App.tsx
 import React, { useEffect, useState } from "react";
 import AccordionTable from "./components/AccordionTable";
 import { ProcessedData } from "./types";
+import { BgEffect } from "./components/ParticlesBackground";
 
 const App: React.FC = () => {
   const [data, setData] = useState<ProcessedData[]>([]);
-  
+
   const csvUrl = import.meta.env.VITE_APP_CSV;
 
   useEffect(() => {
@@ -61,9 +61,26 @@ const App: React.FC = () => {
   }, {} as Record<string, ProcessedData[]>);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-6">Recursos</h1>
-      <AccordionTable groupedTags={groupedTags} />
+    <div className="flex flex-col min-h-screen">
+      <div className="relative hidden lg:block">
+        <div className="absolute left-40 top-20 z-10">
+          <img
+            src="./dog.png"
+            alt="Logo"
+            className="w-40 h-40 mx-auto mb-6 float-animation"
+          />
+        </div>
+      </div>
+      <BgEffect />
+      <div className="w-screen mx-auto px-4 py-8 z-20 flex-grow relative">
+        <h1 className="text-3xl font-bold text-center mb-6 z-20 zen-dots-regular">
+          Dev Resources
+        </h1>
+        <AccordionTable groupedTags={groupedTags} />
+      </div>
+      <footer className="bg-gray-800 text-white text-center py-4 relative">
+        <h3>Powered by Fiamy</h3>
+      </footer>
     </div>
   );
 };
