@@ -2,29 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Personalización adicional */
+
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   margin: 0;
-  background-color: #444444; /* Fondo claro por defecto */
-  color: #213547; /* Texto oscuro por defecto */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+  background-color: #444444; 
+  color: #213547;
+  transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
-/* Tema oscuro */
+
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #1a1a1a; /* Fondo oscuro */
-    color: rgba(255, 255, 255, 0.87); /* Texto claro */
+    background-color: #1a1a1a; 
+    color: rgba(255, 255, 255, 0.87); 
   }
 
-  /* Estilos adicionales para enlaces u otros elementos si es necesario */
+ 
   a {
     color: #747bff;
   }
 
   a:hover {
     color: #9096ff;
+  }
+}
+@layer base {
+  :root {
+    --radius: 0.5rem;
   }
 }
