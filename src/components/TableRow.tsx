@@ -26,9 +26,9 @@ const getBackgroundColor = (color: string) => {
 
 const TableRow: React.FC<TableRowProps> = ({ entry }) => {
   return (
-    <tr className="z-20">
-      <td className="px-4 py-2">{entry.name}</td>
-      <td className="px-4 py-2 whitespace-nowrap">
+    <tr className="z-20 whitespace-nowrap">
+      <td className="px-4 py-2 ">{entry.name}</td>
+      <td className="px-4 py-2 ">
         {entry.tags.map((tag) => {
           if (!tagColors[tag]) {
             const colorIndex =
@@ -70,7 +70,7 @@ const TableRow: React.FC<TableRowProps> = ({ entry }) => {
             rel="noopener noreferrer"
             className="text-[#ff74e1] hover:underline"
           >
-            {entry.url}
+            Click here
           </a>
         )}
       </td>

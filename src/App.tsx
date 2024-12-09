@@ -79,7 +79,15 @@ const App: React.FC = () => {
         <AccordionTable groupedTags={groupedTags} />
       </div>
       <footer className="bg-gray-800 text-white text-center py-4 relative">
-        <h3>Powered by Fiamy</h3>
+        <h3>
+          Powered by{" "}
+          <a
+            href="https://github.com/FiammaMuscari"
+            className="font-bold text-inherit"
+          >
+            Fiamy
+          </a>
+        </h3>
       </footer>
     </div>
   );
