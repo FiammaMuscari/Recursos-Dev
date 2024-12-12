@@ -6,21 +6,21 @@ type TableRowProps = {
 };
 
 const predefinedColors = [
-  "#39FF14",
-  "#FF6EC7",
-  "#00FFFF",
-  "#FFFF33",
-  "#FFB300",
-  "#FF1493",
-  "#7FFF00",
-  "#32CD32",
-  "#00FA9A",
-  "#FFD700",
-  "#FF69B4",
-  "#BA55D3",
-  "#00BFFF",
-  "#FF00FF",
-  "#FF6347",
+  "#39FF14", // Neon Green
+  "#FF6EC7", // Neon Pink
+  "#00FFFF", // Neon Cyan
+  "#FFFF33", // Neon Yellow
+  "#FFB300", // Neon Bright Orange
+  "#FF1493", // Neon Deep Pink
+  "#7FFF00", // Neon Chartreuse
+  "#32CD32", // Neon Lime Green
+  "#00FA9A", // Neon Medium Spring Green
+  "#FFD700", // Neon Gold
+  "#FF69B4", // Neon Hot Pink
+  "#BA55D3", // Neon Medium Orchid
+  "#00BFFF", // Neon Bright Blue
+  "#FF00FF", // Neon Magenta
+  "#FF6347", // Neon Tomato Red
 ];
 
 const tagColors: Record<string, { background: string; border: string }> = {};
